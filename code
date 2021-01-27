@@ -14,8 +14,8 @@
 if (correct) {
    var sound = new Audio('http://freesoundeffect.net/sites/default/files/correct-answer--2-sound-effect-35192872.mp3');
    sound.play();
-}
-if (incorrect) {new Audio('http://freesoundeffect.net/sites/default/files/incorrect-answer--1-sound-effect-27493287.mp3');
-   sound.play();
+} else {
+   var sound_i = new Audio('http://freesoundeffect.net/sites/default/files/incorrect-answer--1-sound-effect-27493287.mp3');
+   sound_i.play();
 }
 })();
