@@ -3,16 +3,19 @@
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  Being developed
-// @author       AoPSDev
+// @author       AoPSDec
 // @match        http://artofproblemsolving.com
 // @grant        none
 // ==/UserScript==
+
+(function() {
+    'use strict';
 
 if (correct) {
    var sound = new Audio('http://freesoundeffect.net/sites/default/files/correct-answer--2-sound-effect-35192872.mp3');
    sound.play();
 }
-if (incorrect) {
-   var sound = new Audio('http://freesoundeffect.net/sites/default/files/incorrect-answer--1-sound-effect-27493287.mp3');
+if (incorrect) {new Audio('http://freesoundeffect.net/sites/default/files/incorrect-answer--1-sound-effect-27493287.mp3');
    sound.play();
 }
+})();
