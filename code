@@ -1,0 +1,27 @@
+
+var watchRegx = /\bjust now\b/i;
+var alrtSound = new Audio ("http://freesoundeffect.net/sites/default/files/correct-answer--2-sound-effect-35192872.mp3");
+
+var cntnrNode = document.querySelector ("#mainArea");
+if (typeof cntnrNode === "undefined")   console.error ("TM: Container node not found.");
+else {
+    var wordObsrv = new MutationObserver (alertOnWord);
+    wordObsrv.observe (document.body, {childList: true, subtree: true} );
+}
+function alertOnWord (mutationRecords) {
+    mutationRecords.forEach (muttn => {
+        if (muttn.type === "childList"  &&  typeof muttn.addedNodes === "object") {
+            muttn.addedNodes.forEach (newNode => {
+                /*-- Restrict the kinds of nodes watched for better performance
+                    and/or to avoid false positives.
+                */
+                if (newNode.nodeName === "DIV"  ||  newNode.nodeName === "SPAN"  ||  newNode.nodeName === "P") {
+                    if (watchRegx.test (newNode.textContent) ) {
+                        console.log ("Found new instance of target term!");
+                        alrtSound.play ();
+                    }
+                }
+            } );
+        }
+    } );
+}
