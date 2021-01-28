@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  Being developed
-// @author       AoPSDec
+// @author       AoPSDev
 // @match        http://artofproblemsolving.com
 // @grant        none
 // ==/UserScript==
